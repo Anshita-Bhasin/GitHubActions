@@ -32,7 +32,7 @@
             "name": "I open Amazon page",
             "result": {
               "status": "passed",
-              "duration": 5088000000
+              "duration": 3466000000
             }
           },
           {
@@ -42,7 +42,7 @@
             "name": "I see \"Amazon.com. Spend less. Smile more\" in the title",
             "result": {
               "status": "passed",
-              "duration": 30000000
+              "duration": 12000000
             }
           }
         ]
