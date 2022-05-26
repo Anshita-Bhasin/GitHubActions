@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: GitHub Actions Matrix
 'on':
   workflow_dispatch: null
   pull_request:
