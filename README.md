@@ -1,3 +1,10 @@
-# Cypress_Demo
+# Cypress
+# GitHubActions
 
-POC for running the script and uploading it on AWS S3 and then sharing it over the email to know about success and failures of the test automation pack.
+
+How to run job in parallel
+How to schedule job
+How to generate cucumber HTML Report in cypress
+How to do profiling in cypress 
+
+
