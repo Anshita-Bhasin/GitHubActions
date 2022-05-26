@@ -8,8 +8,12 @@ name: GitHub Actions Demo
       - cron: '* 5 * * *'
 jobs:
   Google-Test:
+    strategy:
+      matrix:
+       version: [ 10, 12, 14 ]
+       os: [ ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 120
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
