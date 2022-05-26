@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Google-Test
         uses: cypress-io/github-action@v2
+      - name: Test Execution
         run: |
           npm run google
           npm run amazon
