@@ -15,6 +15,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     steps:
+      - uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.version }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Google-Test
@@ -24,16 +27,4 @@ jobs:
           browser: chrome
           headless: true
           record: false
-  Amazon-Test:
-    timeout-minutes: 120
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Amazon-Test
-        uses: cypress-io/github-action@v2
-        with:
-          command: npm run amazon
-          browser: chrome
-          headless: true
-          record: false
+
