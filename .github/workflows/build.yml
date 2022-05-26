@@ -1,0 +1,35 @@
+name: GitHub Actions Demo
+'on':
+  workflow_dispatch: null
+  pull_request:
+    branches:
+      - master
+    schedule:
+      - cron: '* 5 * * *'
+jobs:
+  Google-Test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Google-Test
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run google
+          browser: chrome
+          headless: true
+          record: false
+  Amazon-Test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Google-Test
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run amazon
+          browser: chrome
+          headless: true
+          record: false

@@ -1,0 +1,52 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Amazon Landing Page",
+    "line": 2,
+    "id": "amazon-landing-page",
+    "tags": [
+      {
+        "name": "@Amazon",
+        "line": 1
+      }
+    ],
+    "uri": "Amazon.feature",
+    "elements": [
+      {
+        "id": "amazon-landing-page;verifying-title",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Verifying Title",
+        "tags": [
+          {
+            "name": "@Amazon",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I open Amazon page",
+            "result": {
+              "status": "passed",
+              "duration": 5088000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I see \"Amazon.com. Spend less. Smile more\" in the title",
+            "result": {
+              "status": "passed",
+              "duration": 30000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

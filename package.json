@@ -1,0 +1,37 @@
+{
+  "name": "cypress-demo",
+  "version": "1.0.0",
+  "description": "testing project",
+  "main": "index.js",
+  "scripts": {
+    "test:open": "cypress open",
+    "scripts": "cypress run --browser chrome",
+    "test-google": "./node_modules/.bin/cypress-tags run -e TAGS='@Google' --browser chrome --headless",
+    "test-amazon": "./node_modules/.bin/cypress-tags run -e TAGS='@Amazon' --browser chrome --headless",
+    "posttest": "node cucumber-html-report.js",
+    "delete:reportFolder": "rm -rf cypress/reports/",
+    "keep:onlyReport": "rm -rf cypress/reports/cucumber-json;rm -rf cypress/reports/Result/assets ; rm -rf cypress/reports/Result/features",
+    "google": "npm run delete:reportFolder && npm run test-google ; npm run posttest",
+    "amazon": "npm run delete:reportFolder && npm run test-amazon ; npm run posttest"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.6.1",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-multi-reporters": "^1.5.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "multiple-cucumber-html-reporter": "^1.19.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/cucumber-json",
+      "filePrefix": "Test_Result",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
