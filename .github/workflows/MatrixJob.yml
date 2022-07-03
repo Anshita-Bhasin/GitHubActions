@@ -4,8 +4,6 @@ name: GitHub Actions Matrix
   pull_request:
     branches:
       - master
-    schedule:
-      - cron: '* 5 * * *'
 jobs:
   Google-Test:
     strategy:
