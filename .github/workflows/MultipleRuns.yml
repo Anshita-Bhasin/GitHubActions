@@ -4,8 +4,6 @@ name: GitHub Actions Multiple Runs
   pull_request:
     branches:
       - master
-    schedule:
-      - cron: '* 5 * * *'
 jobs:
   Multiple-Test:
     timeout-minutes: 120
