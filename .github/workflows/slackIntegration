@@ -1,0 +1,49 @@
+name: Cypress Test Report
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Cypress-Test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run Test in cypress and generate Multile Cucumber Html Report
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run TestWithReportGeneration
+          browser: chrome
+          
+      - name: Upload Report on GitHub Actions
+        uses: actions/upload-artifact@v2
+        with:
+          name: HTML_Report
+          path: cypress/reports/Results
+          retention-days: 2 
+          
+      - name: Upload Report to AWS S3 Bucket
+        uses: shallwefootball/s3-upload-action@master
+        id: S3
+        with:
+          aws_key_id: ${{secrets.AWS_KEY_ID}}
+          aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY}}
+          aws_bucket: bucketName
+          source_dir: cypress/reports/Results
+                  
+      - name: Link to AWS S3 Bucket Report
+        run: >
+          echo
+          "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html"
+          
+      - name: Slack Notifications
+        uses: act10ns/slack@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          message: Test Report - https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html
