@@ -27,8 +27,8 @@ jobs:
       - name: Upload Report1
         uses: actions/upload-artifact@v3
         with:
-          name: k6-report-summary
-          path: summary.html
+          name: Upload Report1
+         
      
   Amazon-Test:
     timeout-minutes: 120
@@ -47,8 +47,8 @@ jobs:
       - name: Upload Report2
         uses: actions/upload-artifact@v3
         with:
-          name: k6-report-summary
-          path: summary.html
+          name: Upload Report2
+         
           
   combine-reports:
     needs: [Google-Test, Amazon-Test]
