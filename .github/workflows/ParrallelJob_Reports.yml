@@ -1,0 +1,55 @@
+name: GitHub Actions Parallel Job with report
+'on':
+ 
+  workflow_dispatch: null
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master    
+jobs:
+  Google-Test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Google-Test
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run google
+          browser: chrome
+          headless: true
+          record: false
+     - name: Upload Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: HTML_Report1
+          path: cypress/reports/Result
+      
+           
+     
+  Amazon-Test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Amazon-Test
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run amazon
+          browser: chrome
+          headless: true
+          record: false
+          
+      - name: Upload Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: HTML_Report2
+          path: cypress/reports/Result
+
+         
+          
+  
