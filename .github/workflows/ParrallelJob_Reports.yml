@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Google-Test
         uses: cypress-io/github-action@v5
         with:
@@ -23,8 +23,8 @@ jobs:
           headless: true
           record: false
           
-      - name: Upload Report
-        uses: actions/upload-artifact@v2
+      - name: Upload Report- Google
+        uses: actions/upload-artifact@v3
         with:
           name: HTML_Report1
           path: cypress/reports/Result
@@ -45,11 +45,36 @@ jobs:
           headless: true
           record: false
           
-      - name: Upload Report
-        uses: actions/upload-artifact@v2
+      - name: Upload Report- Amazon
+        uses: actions/upload-artifact@v3
         with:
           name: HTML_Report2
           path: cypress/reports/Result
+          
+  combine-reports:
+    needs: [Google-Test, Amazon-Test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download google report
+        uses: actions/download-artifact@v3
+        with:
+          name: HTML_Report1
+      - name: Download Amazon report
+        uses: actions/download-artifact@v3
+        with:
+          name: HTML_Report2
+      - name: Combine reports
+        run: |
+          # Combine the reports here
+          echo "Reports combined"
+        # Upload combined report as artifact
+       
+      - name: Upload combined report
+        uses: actions/upload-artifact@v3
+        with:
+           name: combined-report
+           path: cypress/reports/Result         
+          
 
          
           
