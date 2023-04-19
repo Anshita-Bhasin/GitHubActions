@@ -20,8 +20,7 @@ jobs:
         with:
           command: npm run google
           browser: chrome
-          headless: true
-          record: false
+         
           
       - name: Upload Report- Google
         uses: actions/upload-artifact@v3
@@ -42,8 +41,7 @@ jobs:
         with:
           command: npm run amazon
           browser: chrome
-          headless: true
-          record: false
+         
           
       - name: Upload Report- Amazon
         uses: actions/upload-artifact@v3
@@ -65,16 +63,16 @@ jobs:
           name: HTML_Report2
       - name: Combine reports
         run: |
-          # Combine the reports here
-          echo "Reports combined"
-        # Upload combined report as artifact
-       
-      - name: Upload combined report
+          mkdir -p combined-artifacts
+          zip -r combined-artifacts/artifacts.zip cypress/reports/Result cypress/reports/Result
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-           name: combined-report
-           path: cypress/reports/Result         
-          
+          name: combined-artifacts
+          path: combined-artifacts
+
+           
+        
 
          
           
