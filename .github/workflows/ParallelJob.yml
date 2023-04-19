@@ -27,7 +27,7 @@ jobs:
       - name: Upload Report1
         uses: actions/upload-artifact@v3
         with:
-          name: Upload Report1
+          
           path: Test1.html
          
      
@@ -48,30 +48,8 @@ jobs:
       - name: Upload Report2
         uses: actions/upload-artifact@v3
         with:
-          name: Upload Report2
+          
           path: Test2.html
          
           
-  combine-reports:
-    needs: [Google-Test, Amazon-Test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download google report
-        uses: actions/download-artifact@v2
-        with:
-          name: Upload Report1
-      - name: Download Amazon report
-        uses: actions/download-artifact@v2
-        with:
-          name: Upload Report2
-      - name: Combine reports
-        run: |
-          # Combine the reports here
-          echo "Reports combined"
-        # Upload combined report as artifact
-       
-      - name: Upload combined report
-        uses: actions/upload-artifact@v2
-        with:
-           name: combined-report
-           path: Test3.html    
+  
