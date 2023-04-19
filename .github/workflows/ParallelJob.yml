@@ -22,14 +22,7 @@ jobs:
           browser: chrome
           headless: true
           record: false
-          
-          
-      - name: Upload Report1
-        uses: actions/upload-artifact@v3
-        with:
-          
-          path: Test1.html
-         
+             
      
   Amazon-Test:
     timeout-minutes: 120
@@ -45,11 +38,7 @@ jobs:
           headless: true
           record: false
           
-      - name: Upload Report2
-        uses: actions/upload-artifact@v3
-        with:
-          
-          path: Test2.html
+     
          
           
   
