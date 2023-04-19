@@ -49,27 +49,7 @@ jobs:
           name: HTML_Report2
           path: cypress/reports/Result
           
-  combine-reports:
-    needs: [Google-Test, Amazon-Test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download google report
-        uses: actions/download-artifact@v3
-        with:
-          name: HTML_Report1
-      - name: Download Amazon report
-        uses: actions/download-artifact@v3
-        with:
-          name: HTML_Report2
-      - name: Combine reports
-        run: |
-          mkdir -p combined-artifacts
-          zip -r combined-artifacts/artifacts.zip cypress/reports/Result cypress/reports/Result
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: combined-artifacts
-          path: combined-artifacts
+  
 
            
         
