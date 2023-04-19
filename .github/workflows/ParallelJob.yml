@@ -28,6 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Upload Report1
+          path: Test1.html
          
      
   Amazon-Test:
@@ -48,6 +49,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Upload Report2
+          path: Test2.html
          
           
   combine-reports:
@@ -72,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
            name: combined-report
-           path: test-report     
+           path: Test3.html    
