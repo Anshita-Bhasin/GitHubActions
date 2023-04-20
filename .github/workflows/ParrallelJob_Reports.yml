@@ -25,13 +25,13 @@ jobs:
       - name: Upload Report- Google
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact1
+          name: Test-Report-Google
           path: cypress/reports/Result
           
-      - uses: actions/download-artifact@v3
-
-      - name: Display structure of downloaded files
-        run: ls -R   
+      - name: Upload merged artifact  
+        uses: actions/download-artifact@v3
+        with:
+         path: cypress/reports/Result
       
            
      
@@ -51,25 +51,16 @@ jobs:
       - name: Upload Report- Amazon
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact2
+          name: Test-Report-Amazon
           path: cypress/reports/Result
           
-      - uses: actions/download-artifact@v3
-
-      - name: Display structure of downloaded files
-        run: ls -R
-
-   
-  Merge-Test: 
-    runs-on: ubuntu-latest
-    steps:
-     
-     
-
       - name: Upload merged artifact  
         uses: actions/download-artifact@v3
         with:
          path: cypress/reports/Result
+
+   
+  
 
          
           
