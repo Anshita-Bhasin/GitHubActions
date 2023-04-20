@@ -28,12 +28,7 @@ jobs:
           name: my-artifact1
           path: cypress/reports/Result
           
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: my-artifact1
-          path: cypress/reports/Result
-    
+       
       
            
      
@@ -56,29 +51,18 @@ jobs:
           name: my-artifact2
           path: cypress/reports/Result
           
-          
-          
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: my-artifact2
-          path: cypress/reports/Result    
+   
    
   Merge-Test: 
     runs-on: ubuntu-latest
     steps:
      
-      - name: Merge artifacts
-        run: | 
-             cat cypress/reports/Result cypress/reports/Result > cypress/reports/Result
-  
-      - name: Upload merged artifact
-        uses: actions/upload-artifact@v2
-        with:
-         name: merged-artifact
-         path: cypress/reports/Result
+     
 
-        
+      - name: Upload merged artifact  
+      - uses: actions/download-artifact@v3
+        with:
+         path: cypress/reports/Result
 
          
           
