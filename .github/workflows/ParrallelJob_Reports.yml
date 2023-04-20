@@ -28,7 +28,10 @@ jobs:
           name: my-artifact1
           path: cypress/reports/Result
           
-       
+      - uses: actions/download-artifact@v3
+
+      - name: Display structure of downloaded files
+        run: ls -R   
       
            
      
@@ -51,7 +54,11 @@ jobs:
           name: my-artifact2
           path: cypress/reports/Result
           
-   
+      - uses: actions/download-artifact@v3
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
    
   Merge-Test: 
     runs-on: ubuntu-latest
