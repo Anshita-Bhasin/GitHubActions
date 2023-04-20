@@ -60,7 +60,7 @@ jobs:
      
 
       - name: Upload merged artifact  
-      - uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
          path: cypress/reports/Result
 
