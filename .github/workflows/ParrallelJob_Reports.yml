@@ -60,7 +60,7 @@ jobs:
          path: cypress/reports/
          
       - name : Merger 
-        run: cat cypress/reports/* > cypress/reports/finalReport
+        run: cp cypress/reports/Test-Report-*/ > cypress/reports/merged-report | cat cypress/reports/merged-report/*.html > cypress/reports/finalReport.html
 
    
   
