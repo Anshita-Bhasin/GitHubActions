@@ -25,7 +25,7 @@ jobs:
       - name: Upload Report- Google
         uses: actions/upload-artifact@v3
         with:
-          name: HTML_Report1
+          name: my-artifact1
           path: cypress/reports/Result
           
       - name: Download artifacts
@@ -53,7 +53,7 @@ jobs:
       - name: Upload Report- Amazon
         uses: actions/upload-artifact@v3
         with:
-          name: HTML_Report2
+          name: my-artifact2
           path: cypress/reports/Result
           
           
