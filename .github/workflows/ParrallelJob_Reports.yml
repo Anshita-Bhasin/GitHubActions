@@ -58,6 +58,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
          path: cypress/reports/
+         
+      - name : Merger 
+        run: cat cypress/reports/* > cypress/reports/finalReport
 
    
   
