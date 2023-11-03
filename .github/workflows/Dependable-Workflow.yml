@@ -12,9 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Google-Test
-        uses: cypress-io/github-action
+        uses: cypress-io/github-action@v2
         with:
-          command: npm run google
+          command: npm run google1
           browser: chrome
           headless: true
           record: false
